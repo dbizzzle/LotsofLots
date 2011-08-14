@@ -1,0 +1,39 @@
+name: Lots of Lots
+main: Warpdrive.LotsofLots.LotsofLots
+version: 1.0
+author: Warpdrive
+description: A lot plugin
+commands:
+  ljumpset:
+    description: Defines postion 2 of Lot
+    usage: |
+      /<command>
+  lcreate:
+    description: Creates the Lot
+    usage: |
+      /<command>
+  lot:
+    description: Views information about Lot
+    usage: |
+      /<command>
+      /<command> [playername]
+  gotolot:
+    description: Goto a Lot
+    usage: |
+      /<command> [lotid]
+  lotallow:
+    description: Allow users/groups to build on lot
+    usage: |
+      /<command> [lotid] [playername]
+  lotdeny:
+    description: Deny users/groups to build on lot
+    usage: |
+      /<command> [lotid] [playername]
+  setflag:
+    description: Sets a flag on the Lot
+    usage: |
+      /<command> [lotid] [flag]
+  mylot:
+    description: Goto one of your own Lots
+    usage: |
+      /<command> [lotid]
