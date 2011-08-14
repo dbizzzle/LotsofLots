@@ -1,1 +1,36 @@
 This is the Github repo for Warpdrive's bukkit plugin Lots of Lots.
+
+Command list:
+Square brackets[] represent an optional argument.
+Pointed brackets<> represent a data type, put actual data in this area.
+
+/lcreate
+    Creates a Lot.
+
+/lot [<playername>]
+    Without the playername, this command will show the information of the Lot that you are currently standing in, if any.
+    With the playername, this command will show the number of Lots owned by the player and their respective IDs.
+
+/ljumpset <LotID>
+    This command gets the player's location sets the jump location for the Lot.
+    The jump location is used when going to Lots with /gotolot or /mylot.
+
+/gotolot [<playername>] <LotID>
+    Without the playername, this command will jump the player to the Lot with the GLOBAL* ID specified, if the Lot has a jump location.
+    With the playername, this command will jump the player to the Lot with the LOCAL* ID specified belonging to playername, if the Lot has a jump location.
+
+/lotallow [<LotID>] <playername>
+    Lotallow will allow for other players to build on your Lots.
+    If the player is standing in a Lot that they own, this command can be used without the LotID argument.
+    Although if the player includes the LotID, player allows playername to build in that Lot.
+
+/lotdeny [<LotID>] <playername>
+    Lotdeny removes players that have been allowed on Lots.
+    See /lotallow for command structure.
+
+/mylot <LotID>
+    This command will jump the player to the Lot with the LOCAL* ID of LotID.
+    This is the same as /gotolot YOURNAME <LotID>.
+
+
+*GLOBAL IDs are unique to each Lot. While LOCAL IDs are specific to the player. Both are seen when the Lot is created and with the command /lot when over a Lot.

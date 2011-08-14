@@ -97,7 +97,7 @@ public class LotsofLots extends JavaPlugin{
 
                         player.sendMessage(ChatColor.GREEN + "Lot creation successful!");
                         player.sendMessage(ChatColor.GREEN + "Lot has id of " + index + ", and belongs to " + playername);
-                        player.sendMessage(ChatColor.GREEN + "This lot also has a player lot ID of " + Integer.toString(numLots.get(playername) - 1));
+                        player.sendMessage(ChatColor.GREEN + "This Lot also has a player Lot ID of " + Integer.toString(numLots.get(playername) - 1));
 
                     } else if (args.length == 1) {
                         List<Player> players = this.getServer().matchPlayer(args[0]);
@@ -127,18 +127,18 @@ public class LotsofLots extends JavaPlugin{
 
                             player.sendMessage(ChatColor.GREEN + "Lot creation successful!");
                             player.sendMessage(ChatColor.GREEN + "Lot has ID of " + index + ", and belongs to " + username);
-                            player.sendMessage(ChatColor.GREEN + "This lot also has a player lot ID of " + Integer.toString(numLots.get(username) - 1));
+                            player.sendMessage(ChatColor.GREEN + "This Lot also has a player Lot ID of " + Integer.toString(numLots.get(username) - 1));
 
                         }
                     }
                 } else {
                     p1.put(playername, true);
-                    player.sendMessage(ChatColor.GREEN + "Place block to define first corner of lot.");
+                    player.sendMessage(ChatColor.GREEN + "Place block to define first corner of Lot.");
                     lotPrivate.put(lotPrivate.size(), false);
                 }
             } else {
                 p1.put(playername, true);
-                player.sendMessage(ChatColor.GREEN + "Place block to define first corner of lot.");
+                player.sendMessage(ChatColor.GREEN + "Place block to define first corner of Lot.");
                 lotPrivate.put(lotPrivate.size(), false);
             }
         }
@@ -156,7 +156,8 @@ public class LotsofLots extends JavaPlugin{
                             && (player.getLocation().getBlockZ() <= lotLocs.get(index).get(1).getBlockZ())) {
                         lotfound = true;
                         if (!lotPrivate.get(index)) {
-                            player.sendMessage("Lotid: " + index);
+                            player.sendMessage("LotID: " + index);
+                            player.sendMessage("Player LotID: "+localID(playername, index));
                             player.sendMessage("Owner: " + lotOwn.get(index));
                             player.sendMessage("Members: "+whitelist.get(index));
                             player.sendMessage("Flags: ");
@@ -175,7 +176,7 @@ public class LotsofLots extends JavaPlugin{
                     }
                 }
                 if (!lotfound) {
-                    player.sendMessage("There is no lot here!");
+                    player.sendMessage("There is no Lot here!");
                 }
 
             }else if (args.length == 1){
@@ -199,7 +200,7 @@ public class LotsofLots extends JavaPlugin{
                                 owns.add(index);
                             }
                         }
-                        player.sendMessage(username+" owns "+numLots.get(username)+" lot/s.");
+                        player.sendMessage(username+" owns "+numLots.get(username)+" Lot(s).");
                         player.sendMessage("With LotIDs of: "+owns);
                     }
             }
@@ -234,16 +235,16 @@ public class LotsofLots extends JavaPlugin{
                                     whitelist.get(index).add(players.get(0).getName());
                                     player.sendMessage(ChatColor.GREEN + players.get(0).getName() + " was added to the whitelist.");
                                 } else {
-                                    player.sendMessage(ChatColor.RED + players.get(0).getName() + " is already allowed on this lot!");
+                                    player.sendMessage(ChatColor.RED + players.get(0).getName() + " is already allowed on this Lot!");
                                 }
                             }
                         } else {
-                            player.sendMessage(ChatColor.RED + "You do not own this lot!");
+                            player.sendMessage(ChatColor.RED + "You do not own this Lot!");
                         }
                     }
                 }
                 if (!lotfound) {
-                    player.sendMessage(ChatColor.RED+"You are not standing in a lot.");
+                    player.sendMessage(ChatColor.RED+"You are not standing in a Lot.");
                 }
                 
             } else if (args.length == 2) { //lotallow lotid player
@@ -266,18 +267,18 @@ public class LotsofLots extends JavaPlugin{
                             player.sendMessage(ChatColor.GREEN + players.get(0).getName() + " was added to the whitelist.");
                         }
                         else
-                            player.sendMessage(ChatColor.RED+players.get(0).getName()+" is already allowed on this lot!");
+                            player.sendMessage(ChatColor.RED+players.get(0).getName()+" is already allowed on this Lot!");
                     }
                 } else {
-                    player.sendMessage(ChatColor.RED + "You do not own the lot with that id.");
-                    player.sendMessage(ChatColor.RED + "Type /lot <yourname> to see your lots.");
+                    player.sendMessage(ChatColor.RED + "You do not own the Lot with that id.");
+                    player.sendMessage(ChatColor.RED + "Type /lot <yourname> to see your Lots.");
                 }
 
 
             } else {
                 player.sendMessage(ChatColor.RED + "Incorrect use of lotallow!");
-                player.sendMessage(ChatColor.RED + "Please use /lotallow <playername> if in a lot.");
-                player.sendMessage(ChatColor.RED + "Or /lotallow <lotid> <playername> if you own the lot.");
+                player.sendMessage(ChatColor.RED + "Please use /lotallow <playername> if in a Lot.");
+                player.sendMessage(ChatColor.RED + "Or /lotallow <LotID> <playername> if you own the Lot.");
             }
         }
 
@@ -314,12 +315,12 @@ public class LotsofLots extends JavaPlugin{
                                 }
                             }
                         } else {
-                            player.sendMessage(ChatColor.RED + "You do not own this lot!");
+                            player.sendMessage(ChatColor.RED + "You do not own this Lot!");
                         }
                     }
                 }
                 if (!lotfound) {
-                    player.sendMessage(ChatColor.RED+"You are not standing in a lot.");
+                    player.sendMessage(ChatColor.RED+"You are not standing in a Lot.");
                 }
 
             } else if (args.length == 2) { //lotdeny lotid player
@@ -346,15 +347,15 @@ public class LotsofLots extends JavaPlugin{
                         }
                     }
                 } else {
-                    player.sendMessage(ChatColor.RED + "You do not own the lot with that id.");
-                    player.sendMessage(ChatColor.RED + "Type /lot <yourname> to see your lots.");
+                    player.sendMessage(ChatColor.RED + "You do not own the Lot with that id.");
+                    player.sendMessage(ChatColor.RED + "Type /lot <yourname> to see your Lots.");
                 }
 
 
             } else {
                 player.sendMessage(ChatColor.RED + "Incorrect use of lotdeny!");
-                player.sendMessage(ChatColor.RED + "Please use /lotdeny <playername> if in a lot.");
-                player.sendMessage(ChatColor.RED + "Or /lotdeny <lotid> <playername> if you own the lot.");
+                player.sendMessage(ChatColor.RED + "Please use /lotdeny <playername> if in a Lot.");
+                player.sendMessage(ChatColor.RED + "Or /lotdeny <LotID> <playername> if you own the Lot.");
             }
         }
 
@@ -371,52 +372,52 @@ public class LotsofLots extends JavaPlugin{
                 if (lotOwn.containsKey(index)){
                     if (lotJump.containsKey(index)){
                         player.teleport(lotJump.get(index));
-                        player.sendMessage(ChatColor.GREEN+"Going to lot with ID of "+index);
+                        player.sendMessage(ChatColor.GREEN+"Going to Lot with ID of "+index);
                     }else{ //Lot doesn't have a jump location
-                        player.sendMessage(ChatColor.RED + "This lot does't have a jump location,");
-                        player.sendMessage(ChatColor.RED + "set it with /ljumpset <lotid>.");
+                        player.sendMessage(ChatColor.RED + "This Lot does't have a jump location,");
+                        player.sendMessage(ChatColor.RED + "set it with /ljumpset <LotID>.");
                     }
                 }else{ //Lot doesn't exist
                     player.sendMessage(ChatColor.RED+"Lot with that ID does not exist!");
                 }
-            }else if (args.length == 2){
+            }else if (args.length == 2) {
                 List<Player> players = this.getServer().matchPlayer(args[0]);
-                    if (players.isEmpty()) {
-                        player.sendMessage(ChatColor.RED
-                                + "No Matching Player");
-                    } else if (players.size() > 1) {
-                        player.sendMessage(ChatColor.RED
-                                + "More than one matching player");
-                        player.sendMessage(ChatColor.RED
-                                + "Be more specific!");
-                    } else if (players.size() == 1) {
-                        //Do stuff
-                        Player user = players.get(0);
-                        String username = user.getName();
-                        int index = Integer.parseInt(args[1]);
-                        int indexnew;
+                if (players.isEmpty()) {
+                    player.sendMessage(ChatColor.RED
+                            + "No Matching Player");
+                } else if (players.size() > 1) {
+                    player.sendMessage(ChatColor.RED
+                            + "More than one matching player");
+                    player.sendMessage(ChatColor.RED
+                            + "Be more specific!");
+                } else {// if (players.size() == 1) {
+                    //Do stuff
+                    Player user = players.get(0);
+                    String username = user.getName();
+                    int index = Integer.parseInt(args[1]);
+                    int indexnew;
 
-                        if (pgExchange.containsKey(username)){
-                            if(pgExchange.get(username).containsKey(index)){
-                                indexnew = pgExchange.get(username).get(index);
-                                if (lotJump.containsKey(indexnew)){
-                                    player.teleport(lotJump.get(indexnew));
-                                    player.sendMessage(ChatColor.GREEN+"Going to lot with ID of "+indexnew);
-                                }else{ //Lot doesn't have a jump location
-                                    player.sendMessage(ChatColor.RED + "This lot does't have a jump location,");
-                                    player.sendMessage(ChatColor.RED + "set it with /ljumpset <lotid>.");
-                                }
-                            }else{ //player doesn't own lot with this number
-                                player.sendMessage(ChatColor.RED+"Lot with that ID does not exist!");
+                    if (pgExchange.containsKey(username)) {
+                        if (pgExchange.get(username).containsKey(index)) {
+                            indexnew = pgExchange.get(username).get(index);
+                            if (lotJump.containsKey(indexnew)) {
+                                player.teleport(lotJump.get(indexnew));
+                                player.sendMessage(ChatColor.GREEN + "Going to Lot with ID of " + indexnew);
+                            } else { //Lot doesn't have a jump location
+                                player.sendMessage(ChatColor.RED + "This Lot does't have a jump location,");
+                                player.sendMessage(ChatColor.RED + "set it with /ljumpset <LotID>.");
                             }
-                        }else{ //this player doesn't own any lots
-                            player.sendMessage(ChatColor.RED+"That player doesn't own any lots!");
+                        } else { //player doesn't own lot with this number
+                            player.sendMessage(ChatColor.RED + "Lot with that ID does not exist!");
                         }
+                    } else { //this player doesn't own any lots
+                        player.sendMessage(ChatColor.RED + "That player doesn't own any Lots!");
                     }
-            }else{ //command wasn't called right
-                player.sendMessage(ChatColor.RED+"Incorrect Syntax!");
-                player.sendMessage(ChatColor.RED+"Please use /goto <lotid>,");
-                player.sendMessage(ChatColor.RED+"or /goto <player> <lotnumber>");
+                }
+            } else { //command wasn't called right
+                player.sendMessage(ChatColor.RED + "Incorrect Syntax!");
+                player.sendMessage(ChatColor.RED + "Please use /goto <LotID>,");
+                player.sendMessage(ChatColor.RED + "or /goto <player> <Lotnumber>");
             }
         }
 
@@ -431,17 +432,17 @@ public class LotsofLots extends JavaPlugin{
                     if (pgExchange.get(playername).containsKey(index)) {
                         indexnew = pgExchange.get(playername).get(index);
                         if (lotJump.containsKey(indexnew)) {
-                            player.sendMessage(ChatColor.GREEN+"Going to lot with ID of "+indexnew);
+                            player.sendMessage(ChatColor.GREEN+"Going to Lot with ID of "+indexnew);
                             player.teleport(lotJump.get(indexnew));
                         } else { //Lot doesn't have a jump location
-                            player.sendMessage(ChatColor.RED + "This lot does't have a jump location,");
-                            player.sendMessage(ChatColor.RED + "set it with /ljumpset <lotid>.");
+                            player.sendMessage(ChatColor.RED + "This Lot does't have a jump location,");
+                            player.sendMessage(ChatColor.RED + "set it with /ljumpset <LotID>.");
                         }
                     } else { //player doesn't own lot with this number
                         player.sendMessage(ChatColor.RED+"Lot with that ID does not exist!");
                     }
                 } else { //this player doesn't own any lots
-                    player.sendMessage(ChatColor.RED+"You don't own any lots!");
+                    player.sendMessage(ChatColor.RED+"You don't own any Lots!");
                 }
             } else { //didn't use the command correctly
                 player.sendMessage(ChatColor.RED+"Incorrect Syntax!");
@@ -458,14 +459,14 @@ public class LotsofLots extends JavaPlugin{
                         lotJump.put(index, player.getLocation().getBlock().getLocation());
                         player.sendMessage(ChatColor.GREEN + "Lot jump location set.");
                     } else { //player doesn't own lot!
-                        player.sendMessage(ChatColor.RED + "You do not own the lot with that ID!");
+                        player.sendMessage(ChatColor.RED + "You do not own the Lot with that ID!");
                     }
                 } else { //lot doesn't exist
                     player.sendMessage(ChatColor.RED+"Lot with that ID does not exist!");
                 }
             } else {
                 player.sendMessage(ChatColor.RED+"Incorrect Syntax!");
-                player.sendMessage(ChatColor.RED+"Please use /ljumpset <lotid>.");
+                player.sendMessage(ChatColor.RED+"Please use /ljumpset <LotID>.");
             }
         }
         return true;
@@ -488,5 +489,12 @@ public class LotsofLots extends JavaPlugin{
 
         return new Location(loc1.getWorld(), (x1<x2 ? x1 : x2), loc1.getBlockY(), (z1<z2 ? z1 : z2));
     }
-    
+    private static int localID(String playername, int index){
+        for(int local : pgExchange.get(playername).keySet()){
+            if (pgExchange.get(playername).get(local).equals(index)){
+                return local;
+            }
+        }
+        return index;
+    }
 }
